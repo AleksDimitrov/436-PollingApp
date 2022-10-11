@@ -1,0 +1,65 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+.box {
+    border: 3px solid black;
+    margin: 0px;
+    padding: 0px;
+    /* height: 13.2vh; */
+    overflow: hidden;
+}
+
+#headerBox {
+    height: 5vh;
+}
+
+#outerBox {
+    height: 93vh;
+    /* overflow: hidden; */
+}
+
+#questionBox {
+    width: 75vw;
+    height: 90vh;
+    float: left;
+}
+
+#optionBox {
+    display: flex;
+    width: 35vw;
+    height: 40vh;
+    float: left;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10vh;
+}
+
+#optionBox2 {
+    display: flex;
+    width: 35vw;
+    height: 40vh;
+    float: right;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10vh;
+}
+
+#optionsBox {
+    /* display: flex;
+    width: 100vw;
+    align-items: center; */
+    vertical-align: middle;
+}
+
+#chatBox {
+    height: 90vh;
+}
+
+#chatInput {
+    width: 20vw;
+    position: absolute;
+    bottom: 5vh;
+    right: 2vw;
+}

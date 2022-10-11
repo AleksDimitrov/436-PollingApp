@@ -1,25 +1,28 @@
 <!DOCTYPE html>
 <head>
+    <link rel="stylesheet" href="style.css">
     <title>Polling App</title>
 </head>
 <body>
     <div>
-        <h3>Room Code Bar Content</h3>
+        <h3 id="headerBox" class="box">Room Code</h3>
     </div>
-    <div>
-        <div>
+    <div id="outerBox" class="box">
+        <div id="questionBox" class="box">
             <h1>Question</h1>
-            <div>
-                Option 1
-            </div>
-            <div>
-                Option 2
-            </div>
+            <!-- <div id="optionsBox" class="box"> -->
+                <div id="optionBox" class="box">
+                    <h4>Option 1<h4>
+                </div>
+                <div id="optionBox2" class="box">
+                    <h4>Option 2</h4>
+                </div>
+            <!-- </div> -->
         </div>
-        <div>
-            <div>Chat</div>
+        <div id="chatBox" class="box">
+            <div class="box"><h2>Chat</h2></div>
             <div>
-                <input type="text"></text>
+                <input id="chatInput" type="text"></text>
             </div>
             <!-- Textarea may be more flexible -->
             <!-- <div>
