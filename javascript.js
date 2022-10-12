@@ -12,7 +12,16 @@ function humanIconSpawner(){
 }
 
 function spawnText(){
-  var elementID =  document.getElementById('chatText');
-  var elementTextID = document.getElementById('chatInput').value;
-  elementID.innerHTML += `<textarea>${elementTextID}</textarea>`;
+  var elementID =  document.getElementById('chatUserRight');
+  var elementTextID = document.getElementById('chatInput');
+  /* Let's change the name once we get user and online implementation working */
+  var name = "Ryan";
+
+  /*Spawns a chat box for the user */
+  elementID.innerHTML += `
+  <div id="chatName">${name}</div>
+  <div id="chatTextUserBox">${elementTextID.value}</div>
+  `;
+  /* Reset the input field */
+  elementTextID.value = "";
 }
