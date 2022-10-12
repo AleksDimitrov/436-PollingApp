@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <head>
     <link rel="stylesheet" href="style.css">
+    <script src="../javascript.js"></script>
     <title>Polling App</title>
 </head>
 <body>
@@ -9,7 +10,8 @@
     </div>
     <div id="outerBox" class="box">
         <div id="questionBox" class="box">
-            <h1>Question</h1>
+            <div id="questionTitle" class="title">Question</div>
+            <div id="questionText">How do you make the best website?</div>
             <!-- <div id="optionsBox" class="box"> -->
                 <div id="optionBox" class="box">
                     <h4>Option 1<h4>
@@ -18,16 +20,27 @@
                     <h4>Option 2</h4>
                 </div>
             <!-- </div> -->
+
+            <!-- Human Icons -->
+            <div id="responsesContainer">
+                <div id="humanIcons"></div>
+                <body onload="humanIconSpawner();"></body>
+            </div>
+            
         </div>
         <div id="chatBox" class="box">
             <div class="box"><h2>Chat</h2></div>
             <div>
-                <input id="chatInput" type="text"></text>
+                <form onsubmit="spawnText();return false;">
+                    <input id="chatInput" type="text" placeholder="Type Here to Chat"></text>
+                    <noscript><input type="submit" ></noscript>
+                </form>
             </div>
             <!-- Textarea may be more flexible -->
             <!-- <div>
                 <textarea></textarea>
             </div> -->
+            <div id="chatText"></div>
         </div>
     </div>
 </body>
