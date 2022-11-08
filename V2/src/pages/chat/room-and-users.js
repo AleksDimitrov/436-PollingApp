@@ -24,6 +24,7 @@ const RoomAndUsers = ({ socket, username, room }) => {
   };
 
   return (
+    // <div></div>
     <div className={styles.roomAndUsersColumn}>
       <h2 className={styles.roomTitle}>{room}</h2>
 

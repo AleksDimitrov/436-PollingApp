@@ -39,6 +39,7 @@
   padding: 0px;
   /* height: 13.2vh; */
   overflow: hidden;
+  /* background: blue; */
 }
 
 #headerBox {
@@ -96,13 +97,13 @@
   background-color: rgb(17, 56, 95);
 }
 
-#chatInput {
+.chatInput {
   width: 20vw;
   height: 2vw;
   position: absolute;
   bottom: 6vh;
   right: 2vw;
-  background-color: rgb(62, 112, 161);
+  background: rgb(62, 112, 161);
   color: white;
   border: none;
   padding: 10px;
