@@ -24,7 +24,7 @@ const RoomAndUsers = ({ socket, username, room }) => {
   };
 
   return (
-    // <div></div>
+    
     <div className={styles.roomAndUsersColumn}>
       <h2 className={styles.roomTitle}>{room}</h2>
 
@@ -38,8 +38,8 @@ const RoomAndUsers = ({ socket, username, room }) => {
               }}
               key={user.id}
             >
-              {user.username}
-            </li>
+            <div className={styles.userName}>{user.username}</div>
+            </li>      
           ))}
         </ul>
       </div>

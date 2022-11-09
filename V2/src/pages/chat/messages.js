@@ -44,59 +44,33 @@ const Messages = ({ socket }) => {
   }
 
   return (
-//     <div className={styles.messagesColumn}>
-//     {messagesRecieved.map((msg, i) => (
-//       <div className={styles.message} key={i}>
-//         <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-//           <span className='msgMeta'/*{styles.msgMeta}*/>{msg.username}</span>
-//           <span className='msgMeta'/*{styles.msgMeta}*/>
-//             {formatDateFromTimestamp(msg.__createdtime__)}
-//           </span>
-//         </div>
-//         <p className={styles.msgText}>{msg.message}</p>
-//         <br />
-//       </div>
-//     ))}
-//   </div>
-
     <div>
-      <div>
-        <h3 id={styles.headerBox} className={styles.box}>Room Code</h3>
-    </div>
-    <div id={styles.outerBox} className={styles.box}>
-        <div id={styles.questionBox} className={styles.box}>
+    <div id={styles.outerBox} >
+        <div id={styles.questionBox}>
             <div id={styles.questionTitle} className={styles.title}>Question</div>
             <div id={styles.questionText}>How do you make the best website?</div>
-                <div id={styles.optionBox} className={styles.box}>
+                <div id={styles.optionBox}>
                     <h4>Option 1</h4>
                 </div>
-                <div id={styles.optionBox2} className={styles.box}>
+                <div id={styles.optionBox2}>
                     <h4>Option 2</h4>
                 </div>
 
             <div id={styles.responsesContainer}>
                 <div id={styles.humanIcons}></div>
-                {/* <body onload="humanIconSpawner();"></body> */}
             </div>
-            {/* <div><h2>Chat</h2></div> */}
         </div>
-        <div id={styles.chatLabel}><h2>Chat</h2></div>
-        <div id={styles.chatBox} className={styles.box}>
-            
+
+
+        <div id={styles.chatLabel}><h2>CHAT</h2></div>
+        <div id={styles.chatBox} >
+          
             <div>
-                {/* <form onSubmit={spawnText()}>
-                    <input id={styles.chatInput} className={styles.chatInput} type="text" placeholder="Type Here to Chat"></input>
-                    <noscript><input type="submit" ></input></noscript>
-                </form> */}
                 <div className={styles.messagesColumn}>
                     {messagesRecieved.map((msg, i) => (
                         <div className={styles.message} key={i}>
-                        <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                            <span className='msgMeta'>{msg.username}</span>
-                            <span className='msgMeta'>
-                            {formatDateFromTimestamp(msg.__createdtime__)}
-                            </span>
-                        </div>
+                          <div className={styles.msgUsername}>{msg.username} &nbsp;&nbsp;&nbsp; </div>
+                          <div className={styles.msgMeta}>{formatDateFromTimestamp(msg.__createdtime__)}</div>
                         <p className={styles.msgText}>{msg.message}</p>
                         <br />
                         </div>
@@ -104,7 +78,7 @@ const Messages = ({ socket }) => {
                 </div>
             </div>
 
-            <div id={styles.chatOnlineLeft}><div id={styles.chatTextOnlineBox}>Hello</div></div>
+            <div id={styles.chatOnlineLeft}><div id={styles.chatTextOnlineBox}></div></div>
             <div id={styles.chatUserRight}></div>
         </div>
     </div>

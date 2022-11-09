@@ -26,7 +26,28 @@ const Home = ({username, setUsername, room, setRoom, socket}) => {
     }
 
   return (
-    // <div>
+
+    <div className='container'/*{styles.container}*/>
+      <div className='formContainer'/*{styles.formContainer}*/>
+        <h1>{`||PickOne||`}</h1>
+        <input className={styles.input} placeholder='Username...' 
+        onChange={(e) => setUsername(e.target.value)} />
+
+        <select className={styles.input}
+        onChange={(e) => setRoom(e.target.value)} >
+          <option>-- Select Room --</option>
+          <option value='javascript'>JavaScript</option>
+          <option value='node'>Node</option>
+          <option value='express'>Express</option>
+          <option value='react'>React</option>
+        </select>
+
+        <button className='btn btn-secondary' style={{ width: '60%' }}
+          onClick={joinRoom}>Join Room</button>
+      </div>
+    </div>
+
+        // <div>
     //   <div>
     //     <h3 id={styles.headerBox} className={styles.box}>Room Code</h3>
     // </div>
@@ -63,26 +84,6 @@ const Home = ({username, setUsername, room, setRoom, socket}) => {
     // </div>
       
     // </div>
-
-    <div className='container'/*{styles.container}*/>
-      <div className='formContainer'/*{styles.formContainer}*/>
-        <h1>{`||PickOne||`}</h1>
-        <input className={styles.input} placeholder='Username...' 
-        onChange={(e) => setUsername(e.target.value)} />
-
-        <select className={styles.input}
-        onChange={(e) => setRoom(e.target.value)} >
-          <option>-- Select Room --</option>
-          <option value='javascript'>JavaScript</option>
-          <option value='node'>Node</option>
-          <option value='express'>Express</option>
-          <option value='react'>React</option>
-        </select>
-
-        <button className='btn btn-secondary' style={{ width: '60%' }}
-          onClick={joinRoom}>Join Room</button>
-      </div>
-    </div>
   );
 };
 
