@@ -22,6 +22,72 @@ const Messages = ({ socket }) => {
     return () => socket.off('receive_message');
   }, [socket]);
 
+  function vote() {
+    var button1 = document.getElementById(styles.optionBox);
+  
+          if(button1){
+              console.log("clicked option 1");
+              button1.addEventListener("click", function(e) {
+                  socket.emit('button click', {'id':styles.optionBox});
+              });
+          }
+    
+    var button2 = document.getElementById(styles.optionBox2);
+          if(button2){
+              button2.addEventListener("click", function(e) {
+                  socket.emit('button click', {'value': button2.value, 'id':'button2'});
+              });
+          }
+    
+    var voted = false;
+    socket.on('button msg', function(msg) {
+        // for (const [key, value] of Object.entries(msg.answers)) {
+        //     document.getElementById("h" + key).innerHTML = value; // will need to convert to styles.h1 form etc (maybe no loop)
+        // }
+        console.log(msg.winner);
+        if (msg.winner.length == 1) {
+            document.getElementById(styles.announcer).innerHTML = "By majority vote: <i id='winner'>" + msg.winner[0] + "</i>";
+        } else {
+            let winnerString = ""
+            msg.winner.forEach(function(e) {
+                winnerString = winnerString + "," + e; 
+            });
+            winnerString = winnerString.slice(1,winnerString.length);
+            document.getElementById(styles.announcer).innerHTML = "There was a tie between: <i id='winner'>" + winnerString + "</i>";
+        }
+        // document.getElementById("button1").style.backgroundColor = "darkolivegreen";
+        // document.getElementById("button2").style.backgroundColor = "saddlebrown";
+
+    });
+
+    socket.on('reset msg', function(msg) {
+        for (const [key, value] of Object.entries(msg.answers)) {
+            document.getElementById("h" + key).innerHTML = "";
+            document.getElementById(styles.announcer).innerHTML = "";
+        }
+        button1.style.backgroundColor = "darkolivegreen";
+        button2.style.backgroundColor = "saddlebrown";
+        voted = false;
+    });
+
+    socket.on('counter', function(msg) { 
+        document.getElementById(styles.counter).innerHTML = msg + " sec";
+    });
+
+    button1.addEventListener("click", function onClick(event) {
+        if (voted === false) {
+            event.target.style.backgroundColor = "yellow";
+            voted = true;
+        }
+    });
+    button2.addEventListener("click", function onClick(event) {
+        if (voted === false) {
+            event.target.style.backgroundColor = "yellow";
+            voted = true;
+        }
+    });
+  }
+
   // dd/mm/yyyy, hh:mm:ss
   function formatDateFromTimestamp(timestamp) {
     const date = new Date(timestamp);
@@ -49,7 +115,7 @@ const Messages = ({ socket }) => {
         <div id={styles.questionBox}>
             <div id={styles.questionTitle} className={styles.title}>Question</div>
             <div id={styles.questionText}>How do you make the best website?</div>
-                <div id={styles.optionBox}>
+                <div id={styles.optionBox} onClick={vote}>
                     <h4>Option 1</h4>
                 </div>
                 <div id={styles.optionBox2}>
@@ -59,6 +125,10 @@ const Messages = ({ socket }) => {
             <div id={styles.responsesContainer}>
                 <div id={styles.humanIcons}></div>
             </div>
+
+            <h3 className="winnerText" id="announcer"></h3>
+                <h1 id="counter">0</h1>
+
         </div>
 
 
