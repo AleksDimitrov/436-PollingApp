@@ -48,10 +48,10 @@ const RoomAndUsers = ({ socket, username, room }) => {
           ))}
         </ul>
       </div>
-      <button className={styles.QuestionButton} onClick={leaveRoom}>
+      <button className={styles.QuestionButton} onClick={CreateQuestion}>
         Add Question
       </button>
-      <button className={styles.LeaveButton} onClick={CreateQuestion}>
+      <button className={styles.LeaveButton} onClick={leaveRoom}>
         Leave
       </button>
     </div>
