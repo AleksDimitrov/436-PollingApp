@@ -110,27 +110,26 @@ const Messages = ({ socket }) => {
   }
 
   return (
+
     <div>
-    <div id={styles.outerBox} >
         <div id={styles.questionBox}>
             <div id={styles.questionTitle} className={styles.title}>Question</div>
             <div id={styles.questionText}>How do you make the best website?</div>
                 <div id={styles.optionBox} onClick={vote}>
-                    <h4>Option 1</h4>
+                    <h4>Professionally-Made Interfaces</h4>
                 </div>
                 <div id={styles.optionBox2}>
-                    <h4>Option 2</h4>
+                    <h4>Well-Organized Data Structure</h4>
                 </div>
-
+            
             <div id={styles.responsesContainer}>
-                <div id={styles.humanIcons}></div>
+                <div id={styles.humanIcons}>
+                <h1 id="counter" className = {styles.RespondedCounter}> 0 Responded </h1>
+                </div>
             </div>
 
             <h3 className="winnerText" id="announcer"></h3>
-                <h1 id="counter">0</h1>
-
         </div>
-
 
         <div id={styles.chatLabel}><h2>CHAT</h2></div>
         <div id={styles.chatBox} >
@@ -148,11 +147,9 @@ const Messages = ({ socket }) => {
                 </div>
             </div>
 
-            <div id={styles.chatOnlineLeft}><div id={styles.chatTextOnlineBox}></div></div>
+            {/* <div id={styles.chatOnlineLeft}><div id={styles.chatTextOnlineBox}></div></div> */}
             <div id={styles.chatUserRight}></div>
         </div>
-    </div>
-      
     </div>
   );
 };

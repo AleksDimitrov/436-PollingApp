@@ -23,6 +23,10 @@ const RoomAndUsers = ({ socket, username, room }) => {
     navigate('/', { replace: true });
   };
 
+  const CreateQuestion = () => {
+    // Add code here
+  };
+
   return (
     
     <div className={styles.roomAndUsersColumn}>
@@ -35,6 +39,7 @@ const RoomAndUsers = ({ socket, username, room }) => {
             <li
               style={{
                 fontWeight: `${user.username === username ? 'bold' : 'normal'}`,
+                fontSize: `0.9vw`,
               }}
               key={user.id}
             >
@@ -43,8 +48,10 @@ const RoomAndUsers = ({ socket, username, room }) => {
           ))}
         </ul>
       </div>
-
-      <button className='btn btn-outline' onClick={leaveRoom}>
+      <button className={styles.QuestionButton} onClick={leaveRoom}>
+        Add Question
+      </button>
+      <button className={styles.LeaveButton} onClick={CreateQuestion}>
         Leave
       </button>
     </div>
