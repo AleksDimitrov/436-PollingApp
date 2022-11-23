@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<head>
+    <link rel="stylesheet" href="style2.css">
+    <script src="javascript2.js"></script>
+    <title>Polling App</title>
+</head>
+<body>
+    <div class="roomAndUsersColumn">
+        <h2 class="roomTitle">Room #1<!--{room}--></h2>
+  
+        <div>
+          <!--{roomUsers.length > 0 &&--> <h5 class="usersTitle">Users:</h5> <!--}-->
+          <ul class="usersList">
+            <!-- {roomUsers.map((user) => ( -->
+              <li
+                key={user.id}
+              ><!--style={{
+                fontWeight: `${user.username === username ? 'bold' : 'normal'}`,
+              }}-->
+              <div class="userName">Ryan<!--{user.username}--></div>
+              </li>      
+            <!-- ))} -->
+          </ul>
+        </div>
+  
+        <button class='btn btn-outline' onClick={leaveRoom}>
+          Leave
+        </button>
+      </div>
+    <!-- <div class="messagesColumn"></div> -->
+    <!-- <div>
+        <h3 id="headerBox" class="box">Room Code</h3>
+    </div> -->
+    <div id="outerBox" >
+        <div id="questionBox">
+            <div id="questionTitle" class="title">Question</div>
+            <div id="questionText">How do you make the best website?</div>
+                <div id="optionBox" onClick="vote">
+                    <h4>Option 1</h4>
+                </div>
+                <div id="optionBox2">
+                    <h4>Option 2</h4>
+                </div>
+
+            <div id="responsesContainer">
+                <div id="humanIcons"></div>
+            </div>
+
+            <!-- <h3 class="winnerText" id="announcer"></h3>
+                <h1 id="counter">0</h1> -->
+
+        </div>
+
+
+        <div id="chatLabel"><h2>CHAT</h2></div>
+        <!-- <div id="chatBox" > -->
+          
+            <div>
+                <div class="messagesColumn">
+                    <!-- {messagesRecieved.map((msg, i) => ( -->
+                        <div id="messageBox" class="message" key="i">
+                          <div class="msgUsername"><!--"msg.username" &nbsp;&nbsp;&nbsp;--></div>
+                          <div class="msgMeta"><!--"formatDateFromTimestamp(msg.__createdtime__)"--></div>
+                        <p class="msgText"><!--"msg.message"--></p>
+                        <br/>
+                        </div>
+                        <!-- ))} -->
+                </div>
+            </div>
+
+            <div>
+                <form onsubmit="spawnText();return false;">
+                    <input id="chatInput" type="text" placeholder="Type Here to Chat"></text>
+                    <noscript><input type="submit" ></noscript>
+                </form>
+                <button class="sendBtn" onclick="spawnText();return false;">Send</button>
+            </div>
+
+            <!-- <div id="chatOnlineLeft"><div id="chatTextOnlineBox"></div></div>
+            <div id="chatUserRight"></div> -->
+        <!-- </div> -->
+    </div>
+</body>
